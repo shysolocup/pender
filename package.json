@@ -1,6 +1,6 @@
 {
     "name": "pender",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "paishee",
     "description": "JavaScript package for promises that stops data from getting called upon until awaited",
     "repository": {

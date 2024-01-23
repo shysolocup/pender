@@ -17,8 +17,11 @@
     "keywords": [
         "nodejs",
         "async",
+        "asynchronous",
+        "promise",
+        "promises",
         "lightweight",
-        "backend",
+        "backend"
     ],
     "homepage": "https://github.com/paishee/pyld",
     "main": "index.js"

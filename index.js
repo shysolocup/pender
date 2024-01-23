@@ -1,4 +1,4 @@
-function payload(callback) {
+function pend(callback) {
 
 	// the main return proxy
 	let stuff = new Proxy(
@@ -27,7 +27,7 @@ function payload(callback) {
 	try {
 		
 		stuff[require('util').inspect.custom] = function() {
-			return `\x1b[3mPayload \x1b[33m<pending>\x1b[0m`;
+			return `\x1b[3mPender \x1b[33m<pending>\x1b[0m`;
 		}
 
 	} catch(e) { }
@@ -37,4 +37,4 @@ function payload(callback) {
 }
 
 
-module.exports = payload;
+module.exports = pend;

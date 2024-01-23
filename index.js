@@ -1,4 +1,4 @@
-try { const util = require('util'); } catch() { }
+try { const util = require('util'); } catch(e) { }
 
 class Payload {
 	constructor(base) {
@@ -72,7 +72,7 @@ class Payload {
 // inspect stuff
 try { Payload.prototype[util.inspect.custom] = function () {
 	return `Payload \x1b[33m\x1b[3m[pending]\x1b[0m`;
-} } catch() { }
+} } catch(e) { }
 
 
 module.exports = Payload;

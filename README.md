@@ -1,6 +1,6 @@
-# Promise Payloads
+# Promise Pender
 JavaScript package for promises that stops pending data from getting called upon until it is awaited<br>
-Payloading reduces hang when getting large amounts of data
+Pending data reduces hang when getting large amounts of data
 
 - easy to use
 - open source
@@ -8,10 +8,10 @@ Payloading reduces hang when getting large amounts of data
 <br>
 
 ```console
-npm i pyld
+npm i pender
 ```
 ```console
-npm i paishee/pyld
+npm i paishee/pender
 ```
 
 <br>
@@ -24,13 +24,13 @@ npm i paishee/pyld
 <td>
   
 ```js
-const payload = require('pyld');
+const pend = require('pender');
 import('node-fetch');
 
-let pl = payload( () => fetch("https://google.com") );
+let res = pend( () => fetch("https://google.com") );
 
-console.log(pl);
-console.log(await pl);
+console.log(res);
+console.log(await res);
 ```
 
 </td>
@@ -38,7 +38,7 @@ console.log(await pl);
 <td>
 
 ```js
-Payload <pending>        
+Pender <pending>        
 
 _Response { ... }
 ```

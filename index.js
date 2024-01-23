@@ -1,4 +1,4 @@
-function pend(callback) {
+function pend(callback, name="PenderPromise") {
     let pending = true;
     let failed = false;
     let catches = [];
@@ -36,7 +36,7 @@ function pend(callback) {
                 }
             }
 			
-            
+
 			return target[prop].bind(target);
 		}
 	});
@@ -46,7 +46,7 @@ function pend(callback) {
 	try {
 		
 		stuff[require('util').inspect.custom] = function() {
-			return `\x1b[3mPenderPromise \x1b[33m<${ (pending) ? "pending" : (failed) ? "rejected" : "fulfilled" }>\x1b[0m`;
+			return `\x1b[3m${name} \x1b[33m<${ (pending) ? "pending" : (failed) ? "rejected" : "fulfilled" }>\x1b[0m`;
 		}
 
 	} catch(e) { }

@@ -24,7 +24,13 @@ npm i paishee/pyld
 <td>
   
 ```js
+const Payload = require('pyld');
+const fetch = require('node-fetch');
 
+let payload = new Payload( fetch, "https://google.com" );
+
+console.log(payload);
+console.log(await payload);
 ```
 
 </td>
@@ -32,7 +38,9 @@ npm i paishee/pyld
 <td>
 
 ```js
+Payload <pending>        
 
+_Response { ... }
 ```
   
 </td>

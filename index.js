@@ -13,8 +13,8 @@ function payload(callback) {
 
 			// if it's being awaited then run the promise
 			if (prop == "then" || prop == "finally") {
-				let f = callback();
-				return f.then.bind(f);
+				let f = callback()
+				return (async () => f)().then.bind(f);
 			}
 			
 			return target[prop].bind(target);
@@ -34,11 +34,6 @@ function payload(callback) {
 
 	return stuff;
 }
-
-
-Function.prototype.payload = function(...args) {
-	return payload(this, ...args);
-};
 
 
 module.exports = payload;

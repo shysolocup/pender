@@ -7,7 +7,7 @@ class Payload {
 
 		// the main return proxy
 		let stuff = new Proxy(
-			
+
 
 			// the promise returned originally
 			Promise.resolve(this.data), {
@@ -16,7 +16,6 @@ class Payload {
 			// detector for when something is called from the promise
 			get: (...args) => {
 				const [ target, prop ] = args;
-
 
 				// if it's being awaited then run the promise
                 if (prop == "then") {
@@ -40,6 +39,11 @@ class Payload {
 		return stuff;
 	}
 };
+
+
+Function.prototype.payload = function(...args) {
+	return new Payload(this, ...args);
+}
 
 
 module.exports = Payload;

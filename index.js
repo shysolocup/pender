@@ -26,7 +26,7 @@ class Payload {
 				const [ target, prop ] = args;
 
                 if (prop == "then") {
-                    return target[prop].bind(base(...baseArgs));
+                    return target[prop].bind(base.bind(base)(...baseArgs));
                 }
                 
                 return target[prop].bind(target);

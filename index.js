@@ -1,49 +1,44 @@
-class Payload {
-	constructor(base, ...baseArgs) {
+function payload(callback) {
 
-		// the actual data stuff
-		this.data = {};
-
-
-		// the main return proxy
-		let stuff = new Proxy(
+	// the main return proxy
+	let stuff = new Proxy(
 
 
-			// the promise returned originally
-			Promise.resolve(this.data), {
+		// the promise returned originally
+		Promise.resolve( callback ), {
 
 
-			// detector for when something is called from the promise
-			get: (...args) => {
-				const [ target, prop ] = args;
+		// detector for when something is called from the promise
+		get(target, prop) {
 
-				// if it's being awaited then run the promise
-                if (prop == "then") {
-                    return target[prop].bind( (base instanceof Function) ? base.bind(base) (...baseArgs) : base );
-                }
-                
-                return target[prop].bind(target);
+			// if it's being awaited then run the promise
+			if (prop == "then" || prop == "finally") {
+				let f = callback();
+				return f.then.bind(f);
 			}
-		});
+			
+			return target[prop].bind(target);
+		}
+	});
 
 
-		// inspect stuff
-		try {
-			stuff[require('util').inspect.custom] = function() {
-				return `\x1b[3mPayload \x1b[33m<pending>\x1b[0m`;
-			}
+	// inspect stuff
+	try {
+		
+		stuff[require('util').inspect.custom] = function() {
+			return `\x1b[3mPayload \x1b[33m<pending>\x1b[0m`;
+		}
 
-		} catch(e) { }
-
-
-		return stuff;
-	}
-};
+	} catch(e) { }
 
 
-Function.prototype.payload = function(...args) {
-	return new Payload(this, ...args);
+	return stuff;
 }
 
 
-module.exports = Payload;
+Function.prototype.payload = function(...args) {
+	return payload(this, ...args);
+};
+
+
+module.exports = payload;

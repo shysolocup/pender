@@ -1,18 +1,18 @@
 {
-    "name": "pyld",
+    "name": "pender",
     "version": "1.0.0",
     "author": "paishee",
     "description": "JavaScript package for promises that stops pending data from getting called upon until it is awaited",
     "repository": {
         "type": "git",
-        "url": "https://github.com/paishee/pyld.git"
+        "url": "https://github.com/paishee/pender.git"
     },
     "bugs": {
-        "url": "https://github.com/paishee/pyld/issues"
+        "url": "https://github.com/paishee/pender/issues"
     },
     "license": {
         "type": "MIT",
-        "url": "https://github.com/paishee/pyld/blob/main/LICENSE"
+        "url": "https://github.com/paishee/pender/blob/main/LICENSE"
     },
     "keywords": [
         "nodejs",
@@ -23,6 +23,6 @@
         "lightweight",
         "backend"
     ],
-    "homepage": "https://github.com/paishee/pyld",
+    "homepage": "https://github.com/paishee/pender",
     "main": "index.js"
 }

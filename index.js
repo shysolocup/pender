@@ -5,7 +5,7 @@ function payload(callback) {
 
 
 		// the promise returned originally
-		Promise.resolve( callback ), {
+		Promise.resolve( {} ), {
 
 
 		// detector for when something is called from the promise

@@ -18,6 +18,8 @@ class Payload {
 					const [ target, prop ] = args;
 					return target[prop];
 				}
+
+
 			})), {
 
 
@@ -25,6 +27,8 @@ class Payload {
 			get: (...args) => {
 				const [ target, prop ] = args;
 
+
+				// if it's being awaited then run the promise
                 if (prop == "then") {
                     return target[prop].bind( (base instanceof Function) ? base.bind(base) (...baseArgs) : base );
                 }
@@ -39,6 +43,7 @@ class Payload {
 			stuff[require('util').inspect.custom] = function() {
 				return `\x1b[3mPayload \x1b[33m<pending>\x1b[0m`;
 			}
+
 		} catch(e) { }
 
 

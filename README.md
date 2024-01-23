@@ -1,6 +1,6 @@
 # Promise Pender
-JavaScript package for promises that stops pending data from getting called upon until it is awaited<br>
-Pending data reduces hang when getting large amounts of data
+JavaScript package for promises that stops data from getting called upon until it is awaited<br>
+Pending data reduces lag when getting large amounts of data at one time
 
 - easy to use
 - open source

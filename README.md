@@ -24,13 +24,13 @@ npm i paishee/pyld
 <td>
   
 ```js
+const payload = require('pyld');
 require('node-fetch');
-require('pyld');
 
-let payload = fetch.payload("https://google.com");
+let pl = payload(() => fetch("https://google.com"));
 
-console.log(payload);
-console.log(await payload);
+console.log(pl);
+console.log(await pl);
 ```
 
 </td>

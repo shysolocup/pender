@@ -38,7 +38,7 @@ console.log(await res);
 <td>
 
 ```js
-Pender <pending>        
+Pender Promise <pending>        
 
 _Response { ... }
 ```

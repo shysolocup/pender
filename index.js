@@ -37,9 +37,4 @@ function payload(callback) {
 }
 
 
-Function.prototype.payload = function(...args) {
-    return payload(() => this(...args));
-}
-
-
 module.exports = payload;

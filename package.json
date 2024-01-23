@@ -2,7 +2,7 @@
     "name": "pyld",
     "version": "1.0.0",
     "author": "paishee",
-    "description": "JavaScript package allowing you to see function data like body and arguments from outside of the function",
+    "description": "JavaScript package for promises that stops pending data from getting called upon until it is awaited",
     "repository": {
         "type": "git",
         "url": "https://github.com/paishee/pyld.git"

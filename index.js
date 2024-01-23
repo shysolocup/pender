@@ -1,5 +1,7 @@
 function pend(callback) {
     let pending = true;
+    let failed = false;
+    let catches = [];
 
 
 	// the main return proxy
@@ -19,9 +21,22 @@ function pend(callback) {
 
 				let f = callback();
 				f = ((f instanceof Promise) ? f : Promise.resolve(f))
-				return f.then.bind(f);
+
+                if (catches.length > 0) f.catch(e => {
+                    catches.forEach( c => c(e) );
+                });
+
+                return f.then.bind(f);
 			}
+
+
+            if (prop == "catch") {
+                return function(catcher) {
+                    catches.push(catcher);
+                }
+            }
 			
+            
 			return target[prop].bind(target);
 		}
 	});
@@ -31,7 +46,7 @@ function pend(callback) {
 	try {
 		
 		stuff[require('util').inspect.custom] = function() {
-			return `\x1b[3mPender Promise \x1b[33m<${ (pending) ? "pending" : "fulfilled" }>\x1b[0m`;
+			return `\x1b[3mPender Promise \x1b[33m<${ (pending) ? "pending" : (failed) ? "rejected" : "fulfilled" }>\x1b[0m`;
 		}
 
 	} catch(e) { }

@@ -8,10 +8,10 @@ Payloading reduces hang when getting large amounts of data
 <br>
 
 ```console
-npm i payld
+npm i pyld
 ```
 ```console
-npm i paishee/payld
+npm i paishee/pyld
 ```
 
 <br>

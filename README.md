@@ -25,7 +25,7 @@ npm i paishee/pyld
   
 ```js
 require('node-fetch');
-const payload = require('pyld');
+require('pyld');
 
 let payload = fetch.payload("https://google.com");
 

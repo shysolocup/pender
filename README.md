@@ -1,5 +1,5 @@
 # Promise Payloads
-JavaScript package for promises and async functions that stops pending data from getting called upon until it is awaited<br>
+JavaScript package for promises that stops pending data from getting called upon until it is awaited<br>
 Payloading reduces hang when getting large amounts of data
 
 - easy to use

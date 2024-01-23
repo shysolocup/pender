@@ -1,0 +1,25 @@
+{
+    "name": "ahold",
+    "version": "1.0.0",
+    "author": "paishee",
+    "description": "JavaScript package allowing you to see function data like body and arguments from outside of the function",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/paishee/ahold.git"
+    },
+    "bugs": {
+        "url": "https://github.com/paishee/ahold/issues"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/paishee/ahold/blob/main/LICENSE"
+    },
+    "keywords": [
+        "nodejs",
+        "async",
+        "lightweight",
+        "backend",
+    ],
+    "homepage": "https://github.com/paishee/ahold",
+    "main": "index.js"
+}

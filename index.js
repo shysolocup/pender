@@ -39,17 +39,4 @@ class Payload {
 };
 
 
-// inspect stuff
-try { 
-	
-	const util = require('util');
-	
-	Payload.prototype[util.inspect.custom] = function () {
-		return `Payload \x1b[33m\x1b[3m[pending]\x1b[0m`;
-	};
-	
-
-} catch(e) { }
-
-
 module.exports = Payload;

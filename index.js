@@ -7,20 +7,10 @@ class Payload {
 
 		// the main return proxy
 		let stuff = new Proxy(
-
+			
 
 			// the promise returned originally
-			Promise.resolve(new Proxy(this.data, {
-			
-				
-				// detects mostly when the promise is awaited
-				get: (...args) => {
-					const [ target, prop ] = args;
-					return target[prop];
-				}
-
-
-			})), {
+			Promise.resolve(this.data), {
 
 
 			// detector for when something is called from the promise

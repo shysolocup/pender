@@ -26,12 +26,20 @@ class Payload {
 				const [ target, prop ] = args;
 
                 if (prop == "then") {
-                    return target[prop].bind( base.bind(base) (...baseArgs) );
+                    return target[prop].bind( (base instanceof Function) ? base.bind(base) (...baseArgs) : base );
                 }
                 
                 return target[prop].bind(target);
 			}
 		});
+
+
+		// inspect stuff
+		try {
+			stuff[require('util').inspect.custom] = function() {
+				return `\x1b[3mPayload \x1b[33m<pending>\x1b[0m`;
+			}
+		} catch(e) { }
 
 
 		return stuff;

@@ -13,8 +13,9 @@ function payload(callback) {
 
 			// if it's being awaited then run the promise
 			if (prop == "then" || prop == "finally") {
-				let f = callback()
-				return (async () => f)().then.bind(f);
+				let f = callback();
+				f = ((f instanceof Promise) ? f : Promise.resolve(f))
+				return f.then.bind(f);
 			}
 			
 			return target[prop].bind(target);

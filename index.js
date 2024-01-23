@@ -46,7 +46,7 @@ function pend(callback) {
 	try {
 		
 		stuff[require('util').inspect.custom] = function() {
-			return `\x1b[3mPender Promise \x1b[33m<${ (pending) ? "pending" : (failed) ? "rejected" : "fulfilled" }>\x1b[0m`;
+			return `\x1b[3mPenderPromise \x1b[33m<${ (pending) ? "pending" : (failed) ? "rejected" : "fulfilled" }>\x1b[0m`;
 		}
 
 	} catch(e) { }
